@@ -4,9 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+    <title>Ninja | Tasker</title>
   </head>
   <body>
-    <h1>IS Working</h1>
+    <div class="container">
+      <div id="logo"></div>
+      <form action="/ninja" method="POST">
+        <input
+          type="text"
+          name="taskItem"
+          class="user-input"
+          placeholder="Enter Your Task"
+          required
+        />
+        <input type="submit" value="Add" class="user-button" />
+      </form>
+
+      <ul>
+        <% for(let index=0; index < list.length; index++ ){%>
+        <li class="ninja-item"><%= list[index] %></li>
+        <%};%>
+      </ul>
+    </div>
   </body>
 </html>
