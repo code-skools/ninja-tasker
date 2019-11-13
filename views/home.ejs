@@ -23,9 +23,10 @@
 
       <ul>
         <% for( let index=0; index < list.length; index++) {%>
-        <li class="ninja-item"><%= list[index] %></li>
-        <% } %>
-      </ul>
-    </div>
+
+        <li class="ninja-item" id="<%= index %>"> <%= list[index] %></li>
+        <%}%>
+
+    <script src="./main.js"></script>
   </body>
 </html>
