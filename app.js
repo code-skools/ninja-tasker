@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const db = require("./models/index.js"); // same ("./models")
 
 //start express app
 const app = express();
@@ -37,6 +38,9 @@ app.delete("/delete/:index", function(req, res) {
 //list.shift(req.body.taskItem);
 //list.removeChild(list.childNodes[0]);
 
-app.listen(3004, function() {
-  console.log("my server is running now");
+db.sequelize.sync().then(function() {
+  app.listen(3004, function(err) {
+    if (err) console.log(err);
+    console.log("my server is running now");
+  });
 });
