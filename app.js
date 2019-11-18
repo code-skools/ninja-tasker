@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 
 const db = require("./models");
 
+const routes = require("./routes");
+
 // starting express app
 const app = express();
 
@@ -16,30 +18,8 @@ app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-let list = ["Code and watch anime", "Slackline tonight"];
-
-// ROUTES
-// GET home
-app.get("/home", function(req, res) {
-  res.render("home.ejs", { list: list }); //create an object called list and pass the array into it
-});
-
-//
-app.post("/ninja", function(req, res) {
-  console.log(req.body.taskItem);
-  list.push(req.body.taskItem);
-  res.render("home.ejs", { list: list });
-  console.log(req);
-});
-
-//create a server to handle delete request
-app.delete("/delete/:index", function(req, res) {
-  console.log(req.params.index);
-
-  list.splice(req.params.index, 1);
-
-  res.json(list);
-});
+// routing manager
+app.use(routes);
 
 db.sequelize.sync().then(function() {
   // server listening for request
