@@ -11,7 +11,6 @@ listItem.addEventListener("click", function(event) {
       res.json();
     })
     .then(function() {
-      event.target.parentNode.removeChild(event.target);
       window.location.href = "/home";
     });
 });
