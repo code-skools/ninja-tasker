@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("../models");
 const routes = express.Router();
+const passport = require("../config/passport");
 
 //routs
 
@@ -38,17 +39,28 @@ routes.delete("/delete/:index", function(req, res) {
 routes.get("/user/login", function(req, res) {
   res.render("login.ejs");
 });
+
 //post login
-routes.post("/user/login", function(req, res) {
-  console.log("hitting post singup");
-});
+routes.post(
+  "/user/login",
+  passport.authenticate("local", {
+    successRedirect: "/home",
+    failureRedirect: "/user/login"
+  })
+);
+
 //sign up
 routes.get("/user/signup", function(req, res) {
   res.render("registration.ejs");
 });
 
 //post sign up
-routes.post("/user/signup", function(req, res) {
-  console.log("hitting post singup");
-});
+routes.post(
+  "/user/signup",
+  passport.authenticate("local-signup", {
+    successRedirect: "/home",
+    failureRedirect: "/user/login"
+  })
+);
+
 module.exports = routes;
