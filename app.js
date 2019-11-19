@@ -7,6 +7,10 @@ const db = require("./models");
 
 const routes = require("./routes");
 
+const passport = require("./config/passport");
+
+const session = require("express-session");
+
 // starting express app
 const app = express();
 
@@ -17,6 +21,11 @@ app.set("view engine", "ejs");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // routing manager
 app.use(routes);
