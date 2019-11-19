@@ -33,4 +33,22 @@ routes.delete("/delete/:index", function(req, res) {
   res.json(list);
 });
 
+//routes: user
+//get login
+routes.get("/user/login", function(req, res) {
+  res.render("login.ejs");
+});
+//post login
+routes.post("/user/login", function(req, res) {
+  console.log("hitting post singup");
+});
+//sign up
+routes.get("/user/signup", function(req, res) {
+  res.render("registration.ejs");
+});
+
+//post sign up
+routes.post("/user/signup", function(req, res) {
+  console.log("hitting post singup");
+});
 module.exports = routes;
