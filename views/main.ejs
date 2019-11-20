@@ -8,9 +8,12 @@
     <title>Ninja | Tasker</title>
   </head>
   <body>
+    <a href="/profile" id="profile"><%= user.nickname%></a>
     <div class="container">
       <div id="logo"></div>
+
       <form action="/ninja" method="POST">
+       
         <input
           type="text"
           name="taskItem"

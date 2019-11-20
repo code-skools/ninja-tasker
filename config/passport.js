@@ -31,12 +31,14 @@ passport.use(
       passReqToCallback: true
     },
     function(req, email, password, done) {
+      console.log(req.body);
       //when the user attemts to login run this code
       db.Users.findOne({ where: { email: email } }).then(function(dbUser) {
         if (dbUser) {
           return done(null, false, { message: "Incorrect email" });
         } else {
           db.Users.create({
+            nickname: req.body.name,
             email: email,
             password: password
           }).then(function(newUser) {
