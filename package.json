@@ -1,0 +1,36 @@
+{
+  "name": "ninja-tasker",
+  "version": "1.0.0",
+  "description": "A to do list app for ninjas",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uchennaofodile/ninja-tasker.git"
+  },
+  "author": "Uchenna Ofodile",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uchennaofodile/ninja-tasker/issues"
+  },
+  "homepage": "https://github.com/uchennaofodile/ninja-tasker#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1",
+    "sequelize-cli": "^5.5.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "mysql2": "^2.0.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.2"
+  }
+}
